@@ -5,6 +5,9 @@
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "bsh-plugin": "./dist/cli.js"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -41,7 +44,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@bshsolutions/sdk": "latest"
+    "@bshsolutions/sdk": "latest",
+    "commander": "^14.0.2"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
