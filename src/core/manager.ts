@@ -27,11 +27,9 @@ export class PluginManager {
       // Write the discovered plugin paths to a file for review
       const paths = await this.discovery.discover(request);
       const fs = await import('fs/promises');
-      await fs.writeFile('temp/plugin_paths_review.json', JSON.stringify(paths, null, 2), 'utf-8');
 
       // 2. Parsing: Parse plugin structure
       const wrapper = this.parser.parse(paths);
-      await fs.writeFile('temp/plugin_wrapper_review.json', JSON.stringify(wrapper, null, 2), 'utf-8');
 
       // 3. Dependency Check: Validate dependencies
       this.dependencyCheck.check(wrapper.contentMap);
